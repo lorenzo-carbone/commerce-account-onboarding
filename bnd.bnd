@@ -1,0 +1,3 @@
+Bundle-Name: Liferay Demo - Commerce Forms User Account Listener
+Bundle-SymbolicName: com.demo.liferay.commerce.account.listener
+Bundle-Version: 1.0.0
