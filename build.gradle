@@ -1,5 +1,6 @@
 dependencies {
-    compileOnly group: "com.liferay.portal", name: "release.dxp.api", version: "7.3.10-ga1"
+    compileOnly 'com.liferay:com.liferay.dynamic.data.mapping.api:8.13.0'
+    compileOnly group: "com.liferay.portal", name: "release.dxp.api"
     compileOnly group: "com.liferay.commerce", name: "com.liferay.commerce.account.api"
     compileOnly group: 'org.slf4j', name: 'slf4j-api'
 }

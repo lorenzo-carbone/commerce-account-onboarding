@@ -16,7 +16,7 @@ or
 ## Configuration
 
 - [Create a form](https://learn.liferay.com/dxp/7.x/en/process-automation/forms/user-guide/creating-forms.html)
-with `companyName`, `vatNumber`, `firstname`, `lastname`, `email` fields.
+with `companyName`, `vatNumber`, `firstName`, `lastName`, `email` fields.
 - [Apply a *Single Approver* workflow to it](https://learn.liferay.com/dxp/7.x/en/process-automation/workflow/user-guide/activating-workflow.html#forms).
 - Copy & paste the form ID in `Control Panel > System Settings > Demo - Commerce Forms Listeners`
 
