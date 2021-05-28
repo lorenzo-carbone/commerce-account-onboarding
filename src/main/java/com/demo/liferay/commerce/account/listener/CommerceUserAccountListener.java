@@ -3,7 +3,6 @@ package com.demo.liferay.commerce.account.listener;
 import com.demo.liferay.commerce.account.listener.configuration.CommerceUserAccountListenerConfiguration;
 import com.liferay.commerce.account.constants.CommerceAccountConstants;
 import com.liferay.commerce.account.model.CommerceAccount;
-import com.liferay.commerce.account.model.CommerceAccountUserRel;
 import com.liferay.commerce.account.service.CommerceAccountLocalService;
 import com.liferay.commerce.account.service.CommerceAccountUserRelLocalService;
 import com.liferay.dynamic.data.mapping.model.DDMFormInstanceRecordVersion;
@@ -127,20 +126,11 @@ public class CommerceUserAccountListener
               CommerceAccountConstants.DEFAULT_PARENT_ACCOUNT_ID, email,
               vatNumber, false, null,null, null, serviceContext);
 
-      List<CommerceAccountUserRel> commerceAccountUserRels = commerceAccount.getCommerceAccountUserRels();
-
-      _commerceAccountLocalService.updateCommerceAccount(commerceAccount);
-
       Role role = _roleLocalService.getRole(
               serviceContext.getCompanyId(),
               CommerceAccountConstants.ROLE_NAME_ACCOUNT_ADMINISTRATOR);
 
-      CommerceAccountUserRel commerceAccountUserRel = _commerceAccountUserRelLocalService
-              .addCommerceAccountUserRel(commerceAccount.getCommerceAccountId(), newUser.getUserId(), new long[] {role.getRoleId()}, serviceContext);
-
-      commerceAccountUserRels.add(commerceAccountUserRel);
-
-      _commerceAccountUserRelLocalService.updateCommerceAccountUserRel(commerceAccountUserRel);
+      _commerceAccountUserRelLocalService.addCommerceAccountUserRel(commerceAccount.getCommerceAccountId(), newUser.getUserId(), new long[] {role.getRoleId()}, serviceContext);
 
       _log.debug("New pending user from user account creation form:");
       _log.debug(newUser.toString());
